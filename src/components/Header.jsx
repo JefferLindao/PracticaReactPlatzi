@@ -1,4 +1,5 @@
 import React from 'react';
+import '../assets/style/components/Header.scss';
 
 const Header = () => (
   <header className="header">
