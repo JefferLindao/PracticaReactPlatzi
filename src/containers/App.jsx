@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Search from '../components/Search';
@@ -8,32 +9,36 @@ import Footer from '../components/Footer';
 import '../assets/style/App.scss';
 
 const App = () => {
-  const [video, setVideos] = useState([]);
+  const [videos, setVideos] = useState({ 'mylist': [],
+    'trends': [],
+    'originals': []
+  });
   useEffect(() => {
     fetch('http://localhost:3000/initalState')
       .then((response) => response.json())
       .then((data) => setVideos(data));
   }, []);
-  console.log(video);
+
   return (
     <div className="App">
       <Header />
       <Search />
 
-      <Categories title="Mi lista">
-        <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-        </Carousel>
-      </Categories>
+      {videos.mylist.length > 0 && (
+        <Categories title="Mi lista">
+          <Carousel>
+            <CarouselItem />
+          </Carousel>
+        </Categories>
+      )}
 
       <Categories title="Tendencias">
         <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
+
+          {videos.trends.map((item) => (
+            <CarouselItem key={item.id} {... item} />
+          ))}
+
         </Carousel>
       </Categories>
 
