@@ -47,6 +47,9 @@ module.exports = {
     }
     ]
   },
+  devServer: {
+    historyApiFallback: true
+  },
   plugins: [
     new HtmlWebPacKPlugin({
       template: './public/index.html',
