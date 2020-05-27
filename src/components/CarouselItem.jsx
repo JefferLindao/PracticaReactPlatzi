@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropType from 'prop-types';
@@ -6,6 +7,7 @@ import '../assets/style/components/CarouselItem.scss';
 import imgPlay from '../assets/static/play-icon.png';
 import imgPlus from '../assets/static/plus-icon.png';
 import imgDelete from '../assets/static/remove-icon.png';
+import { Link } from 'react-router-dom';
 
 const CarouselItem = (props) => {
   const { id, cover, title, year, contentRating, duration, isList } = props;
@@ -22,7 +24,13 @@ const CarouselItem = (props) => {
       <img className="carousel-item__img" src={cover} alt={title} />
       <div className="carousel-item__details">
         <div>
-          <img className="carousel-item__details--img" src={imgPlay} alt="Play Icon" />
+          <Link to={`/player/${id}`}>
+            <img
+              className="carousel-item__details--img"
+              src={imgPlay}
+              alt="Play Icon"
+            />
+          </Link>
           { isList ? (
             <img
               className="carousel-item__details--img"
