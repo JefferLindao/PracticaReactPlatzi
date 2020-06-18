@@ -2,9 +2,14 @@
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "mocha": true
   },
-  "extends": ["airbnb"],
+  "extends": [ 
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "prettier"
+  ],
   "globals": {
     "document": false,
     "escape": false,
@@ -63,7 +68,7 @@
     "no-caller": 2,
     "no-catch-shadow": 0,
     "no-cond-assign": 2,
-    "no-console": 0,
+    "no-console": "warn",
     "no-constant-condition": 0,
     "no-continue": 0,
     "no-control-regex": 2,
@@ -186,7 +191,7 @@
     "react/self-closing-comp": 2,
     "react/sort-comp": 0,
     "react/jsx-wrap-multilines": 2,
-    "semi-spacing": 0,
+    "semi-spacing": "warn",
     "sort-vars": 0,
     "space-before-blocks": [2, "always"],
     "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
