@@ -29,7 +29,7 @@ if (ENV === 'development') {
   app.use(webpackHotMiddleware(compiler))
 } else {
   app.use(express.static(`${__dirname}/public`))
-  app.use(helmer)
+  app.use(helmer())
   app.use(helmer.permittedCrossDomainPolicies())
   app.disable('x-powered-by')
 }
