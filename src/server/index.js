@@ -5,6 +5,11 @@ require('@babel/register')({
     '@babel/preset-env',
     '@babel/preset-react'
   ]
+})
+
+require('asset-require-hook')({
+  extensions: ['jpg', 'png', 'gif'],
+  name: '/assests/[hash].[ext]'
 });
 
-require('./server');
+require('./server')
